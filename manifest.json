@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "SlashSnip",
+  "version": "1.0.0",
+  "description": "Save slash shortcuts and reliably insert reusable text snippets into modern websites.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "clipboardRead",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_title": "SlashSnip",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "snippetEngine.js",
+        "shortcutEngine.js",
+        "healthCheck.js",
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "commands": {
+    "open-quick-search": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Space",
+        "mac": "Command+Shift+Space"
+      },
+      "description": "Open SlashSnip quick search"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "popup.css"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}
