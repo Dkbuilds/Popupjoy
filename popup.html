@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StackSpy</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Current site intelligence</p>
+        <h1>StackSpy</h1>
+      </div>
+      <span class="status" id="status">Scanning…</span>
+    </header>
+
+    <section class="site-card">
+      <div class="site-meta">
+        <span class="site-icon">◎</span>
+        <div>
+          <p class="site-label">Website</p>
+          <p id="siteUrl" class="site-url">Loading current tab…</p>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="copyReport" type="button">Copy report</button>
+        <button id="exportCsv" type="button">Export CSV</button>
+      </div>
+    </section>
+
+    <div id="error" class="error" hidden></div>
+    <section id="summary" class="summary-grid"></section>
+    <section id="categories" class="categories"></section>
+    <section id="seo" class="seo-card"></section>
+  </main>
+
+  <script src="export.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
